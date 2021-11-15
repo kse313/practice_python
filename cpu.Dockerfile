@@ -151,7 +151,12 @@ RUN cd /tmp && \
     cd mecab-python-0.996 && \
     python setup.py build && \
     python setup.py install
+# Remove the CUDA stubs
+ENV LD_LIBRARY_PATH="$LD_LIBRARY_PATH_NO_STUBS"
 
+RUN apt-get autoremove -y && apt-get clean && \
+    rm -rf /var/lib/apt/lists/* ** \
+    conda clean -a -y
 # locale 설정
 RUN apt-get update && apt-get install -y vim locales tzdata && \
     locale-gen ko_KR.UTF-8 && locale -a && \
@@ -172,4 +177,4 @@ COPY test.ipynb /home/jupyter/test.ipynb
 # 기본
 EXPOSE 8888
 # jupyter notebook 의 password를 지정하지 않으면 보안상 취약하므로 지정하는 것을 권장
-CMD jupyter notebook --allow-root
+CMD jupyter notebook --ip 0.0.0.0 --allow-root --no-browser
