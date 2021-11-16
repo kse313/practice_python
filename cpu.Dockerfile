@@ -69,7 +69,7 @@ RUN pip install setuptools && \
     pip install kaggle && \
     pip install folium && \
     pip install librosa && \
-    pip install nbcconvert && \
+    pip install nbconvert && \
     pip install Pillow && \
     pip install tqdm && \
     pip install tensorflow==2.6.0 && \
