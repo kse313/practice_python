@@ -9,7 +9,7 @@ RUN  sed -i "s@archive.ubuntu.com@mirror.kakao.com@g" /etc/apt/sources.list && a
 # openjdk java vm 설치
 RUN apt-get update && \
     apt-get install -y --no-install-recommends \ 
-    weget \
+    wget \
     build-essential \
     libboost-dev \
     libboost-system-dev \
@@ -27,7 +27,7 @@ RUN apt-get update && \
     libsm6\
     libxrender1 \
     libssl-dev \
-    libzmq3-deb \
+    libzmq3-dev \
     vim \
     git
 
