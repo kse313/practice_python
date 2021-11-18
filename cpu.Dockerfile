@@ -101,8 +101,8 @@ RUN wget https://cmake.org/files/v3.16/cmake-3.16.2.tar.gz && \
 ENV PATH=/usr/local/bin:{PATH}
 
 # 나눔고딕 폰트 설치, D2Coding 폰트 설치
-# matplotlib에 Nanum 폰트 추가
-RUN apt-get install fonts-nanum* && \
+# matplotlib에 Nanum 폰트 추가 20211118 -y 추가
+RUN apt-get install -y fonts-nanum* && \
     mkdir ~/.local/share/fonts && \
     cd ~/.local/share/fonts && \
     wget https://github.com/naver/d2codingfont/releases/download/VER1.3.2/D2Coding-Ver1.3.2-20180524.zip && \
